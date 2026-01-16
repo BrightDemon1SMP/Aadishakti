@@ -1,23 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Aadishakti Sound & Music | Seoni</title>
+<title>Aadishakti Sound & Music | Premium DJ Services</title>
 
-<meta name="description" content="Aadishakti Sound & Music – DJ, music system, marriage tent & party sound services in Seoni, Madhya Pradesh.">
-<meta name="keywords" content="DJ Seoni, Sound System, Marriage Tent, Aadishakti">
+<meta name="description" content="Premium DJ, Sound System & Event Music Services in Seoni, Madhya Pradesh" />
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ================== GLOBAL ================== */
+
+/* =====================================================
+   DESIGN TOKENS (AGENCY LEVEL)
+===================================================== */
+:root {
+  --bg-main: #050508;
+  --bg-glass: rgba(255,255,255,0.08);
+  --neon-pink: #ff2a6d;
+  --neon-cyan: #00f5ff;
+  --text-main: #ffffff;
+  --text-muted: rgba(255,255,255,0.7);
+  --radius-lg: 24px;
+  --radius-md: 14px;
+  --transition: all .45s cubic-bezier(.4,0,.2,1);
+  --glow-pink: 0 0 30px rgba(255,42,109,.6);
+  --glow-cyan: 0 0 35px rgba(0,245,255,.6);
+}
+
+/* =====================================================
+   GLOBAL RESET
+===================================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
 }
 
 html {
@@ -25,111 +43,120 @@ html {
 }
 
 body {
-  background: #0a0a0a;
-  color: #fff;
+  background: radial-gradient(circle at top, #0c0c14, #020205);
+  color: var(--text-main);
+  font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
 }
 
-/* ================== NAV ================== */
+/* =====================================================
+   NAVBAR (GLASS + GLOW)
+===================================================== */
 header {
   position: fixed;
   width: 100%;
   top: 0;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(10px);
-  z-index: 999;
+  z-index: 1000;
+  backdrop-filter: blur(14px);
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,.7),
+    rgba(0,0,0,.3)
+  );
 }
 
 .nav {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: auto;
-  padding: 15px 25px;
+  padding: 18px 28px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .logo {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  color: #ff0057;
-  text-shadow: 0 0 15px #ff0057;
+  letter-spacing: 1px;
+  color: var(--neon-pink);
+  text-shadow: var(--glow-pink);
 }
 
 .nav-links {
   display: flex;
-  gap: 25px;
+  gap: 30px;
 }
 
 .nav-links a {
-  color: #fff;
+  color: var(--text-muted);
   text-decoration: none;
   font-weight: 500;
   position: relative;
+  transition: var(--transition);
 }
 
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #00f7ff;
-  transition: 0.3s;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
+.nav-links a:hover {
+  color: #fff;
+  text-shadow: var(--glow-cyan);
 }
 
 .menu {
   display: none;
-  font-size: 1.8rem;
+  font-size: 2rem;
   cursor: pointer;
 }
 
-/* ================== HERO ================== */
+/* =====================================================
+   HERO (PREMIUM VISUAL IMPACT)
+===================================================== */
 .hero {
-  height: 100vh;
-  background:
-    linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.8)),
-    url("https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4") center/cover;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 20px;
+  background:
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
+    url("https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4")
+    center/cover no-repeat;
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
   text-transform: uppercase;
-  animation: glow 2s infinite alternate;
+  letter-spacing: 2px;
+  animation: neonPulse 2.5s infinite alternate;
 }
 
 .hero p {
-  margin: 20px 0;
-  font-size: 1.2rem;
-  opacity: 0;
-  animation: fadeUp 1s forwards 0.5s;
+  margin: 20px auto 35px;
+  max-width: 700px;
+  color: var(--text-muted);
+  font-size: 1.15rem;
 }
 
-.hero .btn {
-  display: inline-block;
-  padding: 14px 35px;
-  border-radius: 30px;
-  background: linear-gradient(45deg,#ff0057,#00f7ff);
+.btn {
+  padding: 16px 40px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
   color: #000;
   font-weight: 600;
   text-decoration: none;
-  box-shadow: 0 0 25px #00f7ff;
-  animation: pulse 2s infinite;
+  box-shadow: var(--glow-cyan);
+  transition: var(--transition);
 }
 
-/* ================== SECTIONS ================== */
+.btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 0 45px rgba(0,245,255,.9);
+}
+
+/* =====================================================
+   SECTIONS
+===================================================== */
 section {
-  padding: 100px 20px;
+  padding: 120px 24px;
 }
 
 .container {
@@ -139,133 +166,138 @@ section {
 
 h2 {
   text-align: center;
-  font-size: 2.2rem;
-  margin-bottom: 40px;
-  color: #00f7ff;
+  font-size: 2.4rem;
+  margin-bottom: 60px;
+  color: var(--neon-cyan);
 }
 
-/* ================== SERVICES ================== */
+/* =====================================================
+   SERVICES (GLASS CARDS)
+===================================================== */
 .services {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 35px;
 }
 
 .service {
-  background: rgba(255,255,255,0.05);
-  border-radius: 15px;
-  padding: 30px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(18px);
+  border-radius: var(--radius-lg);
+  padding: 40px 30px;
   text-align: center;
-  box-shadow: 0 0 20px rgba(0,247,255,0.1);
-  transition: 0.4s;
+  transition: var(--transition);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .service:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 0 35px #00f7ff;
+  transform: translateY(-12px);
+  box-shadow: var(--glow-pink);
 }
 
-.service img {
-  width: 70px;
-  margin-bottom: 15px;
+.service h3 {
+  margin-top: 20px;
+  font-size: 1.3rem;
 }
 
-/* ================== ABOUT ================== */
+/* =====================================================
+   ABOUT (LUXURY PANEL)
+===================================================== */
 .about {
   background:
-    linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.9)),
-    url("https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2") center/cover;
-  border-radius: 30px;
+    linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.9)),
+    url("https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2")
+    center/cover no-repeat;
+  border-radius: 40px;
 }
 
-/* ================== CONTACT ================== */
+/* =====================================================
+   CONTACT
+===================================================== */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 40px;
 }
 
 input, textarea {
   width: 100%;
-  padding: 14px;
-  margin-bottom: 15px;
-  border-radius: 8px;
+  padding: 16px;
+  background: rgba(255,255,255,0.08);
   border: none;
-  outline: none;
+  border-radius: var(--radius-md);
+  color: #fff;
+  margin-bottom: 18px;
 }
 
 button {
   width: 100%;
-  padding: 14px;
-  border-radius: 25px;
-  border: none;
-  background: linear-gradient(45deg,#ff0057,#00f7ff);
+  padding: 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
   font-weight: 600;
+  border: none;
   cursor: pointer;
 }
 
 iframe {
   width: 100%;
-  height: 320px;
-  border-radius: 15px;
+  height: 340px;
+  border-radius: var(--radius-lg);
   border: none;
 }
 
-/* ================== FOOTER ================== */
+/* =====================================================
+   FOOTER
+===================================================== */
 footer {
-  padding: 30px;
   text-align: center;
+  padding: 40px;
   background: #000;
+  color: var(--text-muted);
 }
 
-/* ================== WHATSAPP ================== */
+/* =====================================================
+   WHATSAPP
+===================================================== */
 .whatsapp {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  right: 24px;
+  bottom: 24px;
   background: #25D366;
-  color: #fff;
-  font-size: 1.7rem;
-  padding: 15px;
+  padding: 18px;
   border-radius: 50%;
-  box-shadow: 0 0 25px #25D366;
-  animation: pulse 2s infinite;
+  font-size: 1.7rem;
+  box-shadow: 0 0 30px rgba(37,211,102,.8);
   text-decoration: none;
 }
 
-/* ================== ANIMATIONS ================== */
-@keyframes glow {
-  from { text-shadow: 0 0 10px #ff0057; }
-  to { text-shadow: 0 0 30px #00f7ff; }
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+@keyframes neonPulse {
+  from { text-shadow: 0 0 15px var(--neon-pink); }
+  to { text-shadow: 0 0 45px var(--neon-cyan); }
 }
 
-@keyframes fadeUp {
-  from { opacity:0; transform:translateY(20px); }
-  to { opacity:1; transform:translateY(0); }
-}
-
-@keyframes pulse {
-  0% { box-shadow:0 0 10px #00f7ff; }
-  50% { box-shadow:0 0 30px #00f7ff; }
-  100% { box-shadow:0 0 10px #00f7ff; }
-}
-
-/* ================== MOBILE ================== */
+/* =====================================================
+   MOBILE
+===================================================== */
 @media(max-width:768px){
+  .menu { display:block; }
   .nav-links {
     position: absolute;
     right: 0;
-    top: 60px;
+    top: 70px;
     background: #000;
     flex-direction: column;
-    width: 200px;
+    width: 220px;
     display: none;
   }
   .nav-links.active { display:flex; }
-  .menu { display:block; }
   .contact-grid { grid-template-columns:1fr; }
-  .hero h1 { font-size:2rem; }
 }
+
 </style>
 </head>
 
@@ -287,7 +319,7 @@ footer {
 <section class="hero" id="home">
   <div>
     <h1>Aadishakti Sound & Music</h1>
-    <p>DJ • Music System • Marriage Tent • Party Sound</p>
+    <p>Premium DJ • Music System • Marriage Tent • Party Sound in Seoni</p>
     <a class="btn" href="#contact">Book Your Event</a>
   </div>
 </section>
@@ -296,10 +328,10 @@ footer {
   <div class="container">
     <h2>Our Services</h2>
     <div class="services">
-      <div class="service"><img src="https://cdn-icons-png.flaticon.com/512/727/727245.png"><h3>Music System</h3></div>
-      <div class="service"><img src="https://cdn-icons-png.flaticon.com/512/727/727218.png"><h3>Marriage Tent</h3></div>
-      <div class="service"><img src="https://cdn-icons-png.flaticon.com/512/727/727240.png"><h3>Small Party</h3></div>
-      <div class="service"><img src="https://cdn-icons-png.flaticon.com/512/727/727269.png"><h3>Only DJ</h3></div>
+      <div class="service"><h3>Music System</h3></div>
+      <div class="service"><h3>Marriage Tent</h3></div>
+      <div class="service"><h3>Small Party</h3></div>
+      <div class="service"><h3>Only DJ</h3></div>
     </div>
   </div>
 </section>
@@ -307,9 +339,9 @@ footer {
 <section class="about" id="about">
   <div class="container">
     <h2>About Aadishakti</h2>
-    <p style="text-align:center;">
-      Based in Seoni, Madhya Pradesh, Aadishakti delivers powerful sound,
-      energetic DJ vibes, and professional event setups for unforgettable celebrations.
+    <p style="text-align:center;max-width:800px;margin:auto;">
+      Aadishakti delivers high-impact sound and DJ experiences with premium equipment
+      and professional execution across Madhya Pradesh.
     </p>
   </div>
 </section>
@@ -326,13 +358,11 @@ footer {
       </form>
       <iframe src="https://maps.google.com/maps?q=Seoni%20Madhya%20Pradesh&output=embed"></iframe>
     </div>
-    <p style="text-align:center;margin-top:20px;">📞 1234567890</p>
+    <p style="text-align:center;margin-top:25px;">📞 1234567890</p>
   </div>
 </section>
 
-<footer>
-  © 2026 Aadishakti Sound & Music | Seoni
-</footer>
+<footer>© 2026 Aadishakti Sound & Music</footer>
 
 <a class="whatsapp" href="https://wa.me/911234567890">💬</a>
 
